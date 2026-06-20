@@ -1,0 +1,297 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Важный вопрос</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6ea;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        h1 {
+            color: #d32f2f;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 0 20px;
+            user-select: none;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            justify-content: center;
+            height: 60px;
+        }
+
+        button, .btn-yes {
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            user-select: none;
+        }
+
+        /* Стиль для кнопки ДА */
+        .btn-yes {
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.1);
+            background-color: #45a049;
+        }
+
+        /* Стиль для кнопки НЕТ */
+        #btn-no {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+            left: calc(50% + 10px); 
+        }
+
+        /* Скрываем плеер YouTube, чтобы его не было видно */
+        #audio-player {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: none;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="audio-player" 
+            src="https://www.youtube.com/embed/BsBDB11nl1Y?enablejsapi=1&loop=1&playlist=BsBDB11nl1Y" 
+            allow="autoplay">
+    </iframe >
+
+    <h1>Сен мені <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Важный вопрос</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6ea;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        h1 {
+            color: #d32f2f;
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 0 20px;
+            user-select: none;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            justify-content: center;
+            height: 60px;
+        }
+
+        button, .btn-yes {
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            user-select: none;
+        }
+
+        /* Стиль для кнопки ДА */
+        .btn-yes {
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.1);
+            background-color: #45a049;
+        }
+
+        /* Стиль для кнопки НЕТ */
+        #btn-no {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+            left: calc(50% + 10px); 
+        }
+
+        /* Скрываем плеер YouTube, чтобы его не было видно */
+        #audio-player {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border: none;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="audio-player" 
+            src="https://www.youtube.com/embed/BsBDB11nl1Y?enablejsapi=1&loop=1&playlist=BsBDB11nl1Y" 
+            allow="autoplay">
+    </iframe >
+
+    <h1>Ты меня любишь? ❤️</h1>
+
+    <div class="buttons">
+        <a href="https://youtu.be/BsBDB11nl1Y" target="_blank" class="btn-yes">Да</a>
+        
+        <button id="btn-no">Нет</button>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('btn-no');
+        let player;
+
+        // Подключаем YouTube API для управления звуком
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('audio-player', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Как только пользователь кликнет в любое место или на кнопку — музыка включится
+            document.addEventListener('click', startMusic, { once: true });
+            document.addEventListener('touchstart', startMusic, { once: true });
+        }
+
+        function startMusic() {
+            if (player && typeof player.playVideo === 'function') {
+                player.playVideo();
+            }
+        }
+
+        // Загружаем скрипт YouTube API
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Логика убегания кнопки "Нет"
+        function moveButton() {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 20) + 10;
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 20) + 10;
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        }
+
+        noBtn.addEventListener('mouseenter', moveButton);
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveButton();
+        });
+    </script>
+
+</body>
+</html>
+жақсы коресәнба/h1>
+
+    <div class="buttons">
+        <a href="https://youtu.be/BsBDB11nl1Y" target="_blank" class="btn-yes">Да</a>
+        
+        <button id="btn-no">Нет</button>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('btn-no');
+        let player;
+
+        // Подключаем YouTube API для управления звуком
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('audio-player', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Как только пользователь кликнет в любое место или на кнопку -- музыка включится
+            document.addEventListener('click', startMusic, { once: true });
+            document.addEventListener('touchstart', startMusic, { once: true });
+        }
+
+        function startMusic() {
+            if (player && typeof player.playVideo === 'function') {
+                player.playVideo();
+            }
+        }
+
+        // Загружаем скрипт YouTube API
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Логика убегания кнопки "Нет"
+        function moveButton() {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 20) + 10;
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 20) + 10;
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        }
+
+        noBtn.addEventListener('mouseenter', moveButton);
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveButton();
+        });
+    </script>
+
+</body>
+</html>
+
